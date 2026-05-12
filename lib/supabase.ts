@@ -27,3 +27,4 @@ export const updateBookSynopsis = async (
   if (error) throw error;
   return data;
 };
+

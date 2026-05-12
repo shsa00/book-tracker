@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers"; // Import is correct
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,16 +25,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    /* 1. Added suppressHydrationWarning to prevent the "flicker" error */
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        {/* 2. Wrapped children in Providers so theme logic works */}
+      {/* Changed min-h-full to min-h-screen for better sticky behavior */}
+      <body className="min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950">
         <Providers>
-          {children}
+          {/* Header/Navigation is now a separate component */}
+          <Navbar />
+          
+          {/* Main content area */}
+          <main className="flex-1 flex flex-col">
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

@@ -49,22 +49,23 @@ export default function Dashboard() {
   useEffect(() => { if (view === "local") fetchLocalBooks(); }, [view]);
 
   return (
-    <div className="flex min-h-screen bg-[#fafafa] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-50">
+<div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 flex flex-col">      {/* STICKY TOP NAVIGATION */}
+      
       {/* Sidebar */}
-      <aside className="w-64 border-r border-zinc-200 dark:border-zinc-800 p-8 flex flex-col fixed h-full bg-white dark:bg-[#09090b]">
+      {/* <aside className="w-64 border-r border-zinc-200 dark:border-zinc-800 p-8 flex flex-col fixed h-full bg-white dark:bg-[#09090b]">
         <div className="font-black text-xl italic mb-12 tracking-tighter">LIBRARIAN</div>
         <nav className="flex-1 space-y-3">
           <button onClick={() => setView("search")} className={`w-full text-left px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] rounded-xl transition-all ${view==='search' ? 'bg-zinc-100 dark:bg-zinc-900 text-blue-600 dark:text-blue-400' : 'text-zinc-400 hover:text-zinc-600'}`}>Online Archive</button>
           <button onClick={() => setView("local")} className={`w-full text-left px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] rounded-xl transition-all ${view==='local' ? 'bg-zinc-100 dark:bg-zinc-900 text-blue-600 dark:text-blue-400' : 'text-zinc-400 hover:text-zinc-600'}`}>Local Library</button>
         </nav>
         <ThemeToggle />
-      </aside>
+      </aside> */}
 
       {/* Main Content */}
-      <main className="flex-1 ml-64 p-12">
-        <header className="mb-16">
+      <main className="flex-1 p-8 lg:p-12 max-w-[1600px] mx-auto w-full">
+        {/* <header className="mb-16">
           <h1 className="text-6xl font-black uppercase tracking-tighter">Inventory <span className="text-zinc-200 dark:text-zinc-800">/</span> {view}</h1>
-        </header>
+        </header> */}
 
         {view === "search" && (
           <form onSubmit={handleSearch} className="flex gap-4 mb-16">
